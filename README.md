@@ -12,7 +12,7 @@ This is a simple project to generate a spiral galaxy map.
 
 <!-- Add local source video -->
 Video:
-![Spiral Galaxy Map](./static/galaxy.webm)
+![Spiral Galaxy Map](./static/galaxy.gif)
 
 
 ## Build
