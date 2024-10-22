@@ -10,6 +10,11 @@ This is a simple project to generate a spiral galaxy map.
 
 ## Description
 
+<!-- Add local source video -->
+Video:
+![Spiral Galaxy Map](./static/galaxy.webm)
+
+
 ## Build
 
 To build the project, run the following command:
