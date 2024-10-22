@@ -1,0 +1,9 @@
+[package]
+name = "spiral-galaxy-map"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bevy = { version = "0.14", features = ["bevy_dev_tools"] }
+bevy_render = "0.14.2"
+rand = "0.8.5"
