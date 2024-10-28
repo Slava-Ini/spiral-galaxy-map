@@ -1,15 +1,13 @@
 use bevy::dev_tools::fps_overlay::{FpsOverlayConfig, FpsOverlayPlugin};
 use bevy::prelude::*;
 
-use crate::Colors;
-
 pub struct FpsPlugin;
 
 impl Plugin for FpsPlugin {
     fn build(&self, app: &mut App) {
         let style = TextStyle {
             font_size: 20.0,
-            color: Colors::Green.into(),
+            color: Color::srgb(0.0, 1.0, 0.0),
             font: default(),
         };
 

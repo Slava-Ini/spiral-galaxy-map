@@ -10,7 +10,11 @@ This is a simple project to generate a spiral galaxy map.
 
 ## Description
 
-<!-- Add local source video -->
+Controls:
+- `LMB` - move the camera
+- `RMB` - rotate the camera
+- `Scroll` - zoom in/out
+
 Video:
 ![Spiral Galaxy Map](./static/galaxy.gif)
 
