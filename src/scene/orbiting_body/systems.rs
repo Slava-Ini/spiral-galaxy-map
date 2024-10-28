@@ -69,27 +69,33 @@ pub fn spawn_bodies(
             };
 
             let mut spawn_star = true;
+            let mut spawn_h2 = true;
+            let mut spawn_dust = true;
 
+            // -- Spawn filaments
             if filament && j % 4 == 0 {
-                // -- Spawn filaments
                 commands.spawn((filament_mesh.clone(), orbiting_body.clone()));
+
                 spawn_star = false;
+                spawn_dust = false;
+                spawn_h2 = false;
             }
 
-            if dust && j % 5 == 0 {
-                // -- Spawn dust
+            // -- Spawn dust
+            if dust && spawn_dust && j % 5 == 0 {
                 commands.spawn((dust_mesh.clone(), orbiting_body.clone()));
+
                 spawn_star = false;
             }
 
-            if h2 && j % 30 == 0 {
-                // -- Spawn HII regions
+            // -- Spawn HII regions
+            if h2 && spawn_h2 && j % 30 == 0 {
                 commands.spawn((h2_mesh.clone(), orbiting_body.clone()));
                 spawn_star = false;
             }
 
+            // -- Spawn a star
             if spawn_star {
-                // -- Spawn a star
                 commands.spawn((star_mesh.clone(), orbiting_body));
             }
         }
@@ -138,7 +144,7 @@ fn get_star_mesh(
     let d = dimming_channel;
     let material = StandardMaterial {
         base_color: Color::NONE,
-        emissive: LinearRgba::new(d * 1.5, d * 1.5, d, 1.0),
+        emissive: LinearRgba::new(d * 1.2, d * 1.2, d, 1.0),
         ..default()
     };
 
@@ -158,7 +164,6 @@ fn get_filament_mesh(
     let d = dimming_channel * 0.8;
     let material = StandardMaterial {
         base_color: Color::srgba(d, d, d * 2.0, 0.1),
-        // emissive: LinearRgba::new(d, d, d * 10.0, 0.01),
         alpha_mode: AlphaMode::Blend,
         ..default()
     };
@@ -180,7 +185,7 @@ fn get_h2_mesh(
     let d = dimming_channel * 0.8;
     let material = StandardMaterial {
         base_color: Color::NONE,
-        emissive: LinearRgba::new(d * 10.0, d, d, 0.1),
+        emissive: LinearRgba::new(d * 10.0, d, d, 0.9),
         ..default()
     };
     let size = star_size * 2.0;
@@ -200,11 +205,11 @@ fn get_dust_mesh(
 ) -> PbrBundle {
     let d = dimming_channel * 0.8;
     let material = StandardMaterial {
-        base_color: Color::NONE,
-        emissive: LinearRgba::new(d, d, d, 0.1),
+        base_color: Color::srgba(d, d, d, 0.5),
+        alpha_mode: AlphaMode::Blend,
         ..default()
     };
-    let size = star_size * 0.5;
+    let size = star_size * 3.0;
 
     PbrBundle {
         mesh: meshes.add(Sphere::new(size).mesh().uv(6, 3)),

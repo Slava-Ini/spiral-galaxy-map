@@ -7,7 +7,7 @@ pub fn spawn_center_body(
 ) {
     let mesh = meshes.add(Sphere::new(0.1));
     let material = materials.add(StandardMaterial {
-        base_color: Color::WHITE,
+        base_color: Color::BLACK,
         emissive: LinearRgba::new(100.0, 100.0, 100.0, 1.0),
         ..Default::default()
     });

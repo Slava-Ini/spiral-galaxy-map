@@ -53,8 +53,8 @@ impl Configuration {
         }
     }
 
-    const STAR_COUNT_STEP: u32 = 5_000;
-    const STAR_COUNT_LIMIT: (u32, u32) = (5_000, 50_000);
+    const STAR_COUNT_STEP: u32 = 1_000;
+    const STAR_COUNT_LIMIT: (u32, u32) = (5_000, 15_000);
 
     fn update_star_count(&mut self, action: ButtonAction) {
         match action {
