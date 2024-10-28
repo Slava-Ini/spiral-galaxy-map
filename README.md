@@ -27,13 +27,13 @@ To build the project, run the following command:
 cargo build
 ```
 
-To run the compiled project, run the following command:
+And then run:
 
 ```bash
 ./target/debug/spiral-galaxy-map
 ```
 
-To run the project without building, run the following command:
+Alternatively, to run the project without building, run the following command:
 
 ```bash
 cargo run
