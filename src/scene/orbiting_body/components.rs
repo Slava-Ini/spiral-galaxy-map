@@ -26,8 +26,8 @@ impl SemiAxis {
 impl Default for SemiAxis {
     fn default() -> Self {
         Self {
-            major: 0.5,
-            minor: 0.3,
+            major: 0.4,
+            minor: 0.2,
         }
     }
 }

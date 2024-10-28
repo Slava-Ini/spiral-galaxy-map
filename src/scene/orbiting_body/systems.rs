@@ -81,6 +81,14 @@ pub fn spawn_bodies(
                 spawn_h2 = false;
             }
 
+            // -- Spawn HII regions
+            if h2 && spawn_h2 && j % 30 == 0 {
+                commands.spawn((h2_mesh.clone(), orbiting_body.clone()));
+
+                spawn_star = false;
+                spawn_dust = false;
+            }
+
             // -- Spawn dust
             if dust && spawn_dust && j % 5 == 0 {
                 commands.spawn((dust_mesh.clone(), orbiting_body.clone()));
@@ -88,11 +96,6 @@ pub fn spawn_bodies(
                 spawn_star = false;
             }
 
-            // -- Spawn HII regions
-            if h2 && spawn_h2 && j % 30 == 0 {
-                commands.spawn((h2_mesh.clone(), orbiting_body.clone()));
-                spawn_star = false;
-            }
 
             // -- Spawn a star
             if spawn_star {
